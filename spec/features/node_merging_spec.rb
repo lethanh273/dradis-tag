@@ -91,14 +91,16 @@ describe 'merging a node', js: true do
   end
 
   it 'moves attachments to target node' do
-    attachment = create(:attachment, node: source_node)
+    create(:attachment, node: source_node)
 
     within_merge_node_modal do
       click_link(target_node.label)
       find_button('Merge').click
     end
 
-    expect(target_node.attachments.map(&:filename)).to include(attachment.filename)
+    expect(target_node.attachments.count).to eq 1
+
+    FileUtils.rm_rf(Dir.glob(Attachment.pwd + '*'))
   end
 
   it 'destroys the source node' do
