@@ -27,6 +27,7 @@ describe 'Tag pages:' do
       end
 
       it 'renders form page when clicking new tag button' do
+        visit tags_path
         click_link(href: edit_tag_path(tags.first))
         expect(current_path).to eq(edit_tag_path(tags.first))
       end
