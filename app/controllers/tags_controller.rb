@@ -43,3 +43,4 @@ class TagsController < AuthenticatedController
       params.require(:tag).permit(:name)
     end
   end
+  
