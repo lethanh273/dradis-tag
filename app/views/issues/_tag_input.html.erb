@@ -26,6 +26,9 @@
           <i class="icon fa fa-tag"></i>
           <%= h(tag.display_name) %>
         <% end %>
+      <% end %>      
+      <%= link_to tags_path, class: 'js-taglink dropdown-item', data: { tag: "" } do %>
+        Manage tags
       <% end %>
     </div>
   </div>

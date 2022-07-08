@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/login'  => 'sessions#new'
   get '/logout' => 'sessions#destroy'
   resource :session
+  resources :tags
 
   resources :comments
 
